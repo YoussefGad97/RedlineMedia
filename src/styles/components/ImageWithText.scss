@@ -1,0 +1,39 @@
+.image-with-text {
+  padding: 2rem;
+  background-color: black; // Deep blue background to match your design
+
+  .image-section {
+    img {
+      width: 80%; // Image takes 80% width of the container
+      max-width: 500px; // Image doesn't exceed 500px width
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      display: block;
+      margin: 0 auto; // Centers the image within the grid item
+    }
+  }
+
+  .text-section {
+    h2 {
+      color: #cd1b1b; // Title color
+      font-weight: bold;
+      text-align: left;
+
+      @media (max-width: 768px) {
+        text-align: center; // Center the title on mobile
+      }
+    }
+
+    p {
+      color: #ffffff; // Text color
+      line-height: 1.6;
+      font-size: 1rem;
+      text-align: left;
+
+      @media (max-width: 768px) {
+        text-align: center; // Center the text on mobile
+      }
+    }
+  }
+}

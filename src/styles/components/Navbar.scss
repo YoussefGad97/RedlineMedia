@@ -1,0 +1,84 @@
+/* General Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+  transition: opacity 0.3s ease, top 0.3s ease;
+  background-color: rgba(0,0,0,0.8); /* Dark background color for navbar */
+}
+
+.navbar .navbar-brand {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navbar-toggler-icon {
+  background-color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.6rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: crimson; /* Hover color for nav links */
+}
+
+/* Hamburger menu styles */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;
+}
+
+/* Hide navbar when scrolling */
+.navbar-hidden {
+  opacity: 0;
+  top: -100px; /* Move navbar out of view */
+}
+
+/* Mobile menu styles */
+.navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 1rem;
+}
+
+.navbar-toggler {
+  background-color: transparent;
+}
+
+.navbar-toggler.collapsed {
+  background-color: transparent;
+}
+
+/* Media Query for mobile responsiveness */
+@media (max-width: 991px) {
+  .navbar-nav {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.5rem 0;
+    font-size: 1.25rem;
+  }
+}
