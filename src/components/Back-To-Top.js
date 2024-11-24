@@ -31,7 +31,7 @@ function BackToTop() {
       className={`back-to-top ${isVisible ? "show" : ""}`}
       onClick={scrollToTop}
     >
-      ↑
+      <span>↑</span>
     </button>
   );
 }
