@@ -5,22 +5,27 @@ import WelcomeImage from "../assets/images/welcome.jpg";
 
 const ImageWithText = () => {
   return (
-    <Box sx={{ padding: { xs: 2, md: 4 }, backgroundColor: "black" }}>
+    <Box
+      sx={{
+        padding: { xs: 3, sm: 4, md: 6 }, // Responsive padding
+        backgroundColor: "black",
+      }}
+    >
       <Grid container spacing={4} alignItems="center">
         {/* Image Section */}
         <Grid item xs={12} md={6}>
           <Box
             component="img"
             src={WelcomeImage}
-            alt="Sample Image"
+            alt="Welcome"
             sx={{
-              width: "80%", // Adjust this value to control image size
-              maxWidth: "500px", // Maximum width of the image
+              width: "100%", // Image scales responsively
+              maxWidth: "600px", // Restrict maximum width for medium size
               height: "auto",
               borderRadius: "8px",
-              boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+              boxShadow: "0px 0px 20px 4px rgba(205, 27, 27, 0.7)", // Neon shadow effect
               display: "block",
-              margin: "0 auto",
+              margin: { xs: "0 auto", md: "center" }, // Centered for small screens, left-aligned for medium+
             }}
           />
         </Grid>
@@ -32,7 +37,7 @@ const ImageWithText = () => {
             component="h2"
             gutterBottom
             sx={{
-              color: "#cd1b1b", // Set the color of the title
+              color: "#cd1b1b", // Title color
               fontWeight: "bold",
               textAlign: { xs: "center", md: "left" },
             }}
@@ -42,11 +47,11 @@ const ImageWithText = () => {
           <Typography
             variant="body1"
             sx={{
-              color: "#ffffff", // Set text color to white for better contrast on dark background
-              lineHeight: 1.6,
-              fontSize: "1rem",
+              color: "#ffffff", // Text color for better contrast
+              lineHeight: 1.8,
+              fontSize: "1.1rem",
               textAlign: { xs: "center", md: "left" },
-              width:"85%",
+              width: "90%",
             }}
           >
             We're thrilled to have you here. At Crescendo Media, we help brands,

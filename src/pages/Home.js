@@ -5,7 +5,7 @@ import image1 from "../assets/images/landing1.jpg";
 import image2 from "../assets/images/landing2.jpg";
 import image3 from "../assets/images/landing3.jpg";
 import ImageWithText from "../components/ImageWithText"; // Adjust the path if necessary
-
+import BackToTop from "../components/Back-To-Top";
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -32,7 +32,12 @@ const Home = () => {
           <Carousel.Item key={index}>
             <div
               className="slide-image"
-              style={{ backgroundImage: `url(${slide.image})` }}
+              style={{
+                backgroundImage: `url(${slide.image})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                height: "100vh", // Adjust height based on your design
+              }}
             ></div>
             <Carousel.Caption>
               <h1 className="bouncing-text">{slide.text}</h1>
@@ -42,6 +47,11 @@ const Home = () => {
       </Carousel>
 
       <ImageWithText />
+
+      <div>
+        {/* Your page content */}
+        <BackToTop />
+      </div>
     </div>
   );
 };

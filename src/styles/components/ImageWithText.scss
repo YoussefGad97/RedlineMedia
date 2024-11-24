@@ -1,6 +1,6 @@
 .image-with-text {
   padding: 2rem;
-  background-color: black; // Deep blue background to match your design
+  background-color: black; // Background for contrast
 
   .image-section {
     img {
@@ -8,9 +8,13 @@
       max-width: 500px; // Image doesn't exceed 500px width
       height: auto;
       border-radius: 8px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       display: block;
       margin: 0 auto; // Centers the image within the grid item
+      position: relative;
+
+      // Neon shadow effect on the lower border
+      box-shadow: 0px 10px 20px rgba(205, 27, 27, 0.8),
+        /* Main neon glow */ 0px 5px 10px rgba(205, 27, 27, 0.5); /* Subtle outer glow */
     }
   }
 
@@ -34,6 +38,44 @@
       @media (max-width: 768px) {
         text-align: center; // Center the text on mobile
       }
+    }
+  }
+}
+
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0px 10px 20px rgba(205, 27, 27, 0.8),
+      0px 5px 10px rgba(205, 27, 27, 0.5);
+  }
+  50% {
+    box-shadow: 0px 15px 25px rgba(205, 27, 27, 1),
+      0px 8px 15px rgba(205, 27, 27, 0.7);
+  }
+  100% {
+    box-shadow: 0px 10px 20px rgba(205, 27, 27, 0.8),
+      0px 5px 10px rgba(205, 27, 27, 0.5);
+  }
+}
+
+.image-section img {
+  animation: neon-glow 2s infinite ease-in-out;
+}
+
+.image-with-text {
+  .image-section img {
+    border: 2px solid rgba(255, 255, 255, 0.1); // Subtle border for the image
+    transition: transform 0.3s ease; // Add hover effect
+    &:hover {
+      transform: scale(1.05); // Slight zoom-in effect
+    }
+  }
+
+  .text-section {
+    h2 {
+      font-family: "Roboto", sans-serif;
+    }
+    p {
+      font-family: "Open Sans", sans-serif;
     }
   }
 }
