@@ -1,0 +1,51 @@
+.about-landing {
+  .landing-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh; // Moderate height
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      height: 50vh; // Slightly smaller for mobile
+    }
+
+    .landing-overlay {
+      text-align: center;
+      background-color: rgba(
+        0,
+        0,
+        0,
+        0
+      ); // Transparent overlay for better text readability
+      padding: 2rem;
+      color: #fff;
+      width: 50%; // Adjust text container width
+      border:1px;
+      border-radius: 10px;
+
+      h1 {
+        font-size: 5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color:white;
+        @media (max-width: 768px) {
+          font-size: 2rem;
+        }
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        font-family: Arial, Helvetica, sans-serif;
+        @media (max-width: 768px) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
