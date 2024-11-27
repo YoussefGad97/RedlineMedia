@@ -9,6 +9,8 @@ import BackToTop from "../components/Back-To-Top"; // Ensure the file path is co
 import FeaturedServices from "../components/FeaturedServices";
 import Testimonials from "../components/Testimonials"; // Import the new Testimonials section
 import ImageTextBlock from "../components/ImageTextBlock";
+import CallToActionBanner from "../components/CallToActionBanner";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -88,6 +90,16 @@ const Home = () => {
         <ImageWithText />
       </div>
 
+      {/* ImageTextBlock */}
+      <div
+        ref={(el) => (sectionRefs.current[0] = el)}
+        className={`fade-in-section ${
+          fadeInElements.includes(sectionRefs.current[0]) ? "fade-in" : ""
+        }`}
+      >
+        <ImageTextBlock />
+      </div>
+
       {/* Featured Services Section */}
       <div
         ref={(el) => (sectionRefs.current[1] = el)}
@@ -95,7 +107,7 @@ const Home = () => {
           fadeInElements.includes(sectionRefs.current[1]) ? "fade-in" : ""
         }`}
       >
-        <ImageTextBlock />
+        <FeaturedServices />
       </div>
 
       {/* Testimonials Section */}
@@ -106,6 +118,28 @@ const Home = () => {
         }`}
       >
         <Testimonials />
+      </div>
+
+      {/* CallToActionBanner */}
+
+      <div
+        ref={(el) => (sectionRefs.current[2] = el)}
+        className={`fade-in-section ${
+          fadeInElements.includes(sectionRefs.current[2]) ? "fade-in" : ""
+        }`}
+      >
+        <CallToActionBanner />
+      </div>
+
+      {/* Footer */}
+
+      <div
+        ref={(el) => (sectionRefs.current[2] = el)}
+        className={`fade-in-section ${
+          fadeInElements.includes(sectionRefs.current[2]) ? "fade-in" : ""
+        }`}
+      >
+        <Footer />
       </div>
 
       {/* Back to Top button */}

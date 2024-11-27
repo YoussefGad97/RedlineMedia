@@ -32,7 +32,6 @@ const FeaturedServices = () => {
 
   return (
     <section className="featured-services">
-      <h2 className="section-title">Our Vision</h2>
       <div className="services-container">
         {services.map((service, index) => (
           <div

@@ -1,0 +1,45 @@
+.footer {
+  background-color: #333; // Dark background color
+  color: white; // Text color
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size:1.1rem; 
+
+  .footer-content {
+    max-width: 1200px; // Limit width for larger screens
+    width: 100%;
+    display: flex;
+    justify-content: space-between; // Space between columns
+    flex-wrap: wrap; // Allow wrapping on smaller screens
+
+    .footer-column {
+      flex: 1; // Equal width for all columns
+      min-width: 200px; // Minimum width for responsiveness
+      margin: 10px; // Space between columns
+
+      h4 {
+        color: #DC1900; // Your preferred heading color
+        margin-bottom: 15px; // Space below headings
+      }
+
+      a {
+        color: white; // Link color
+        text-decoration: none; // Remove underline
+        margin: 5px 0; // Space between links
+        display: block; // Make links block elements for easier clicking
+
+        &:hover {
+          color: #DC1900; // Change link color on hover
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    margin-top: 20px; // Space above copyright
+    font-size: 0.9rem; // Smaller font size for copyright
+  }
+}
