@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { Carousel } from "react-bootstrap"; // Import Carousel from Bootstrap
 import "../styles/Home.scss"; // Ensure this points to the correct SCSS file
 import image1 from "../assets/images/landing1.jpg";
-import image2 from "../assets/images/landing2.jpg";
-import image3 from "../assets/images/landing3.jpg";
+import image2 from "../assets/images/slide2.jpg";
+import image3 from "../assets/images/slide3.jpg";
 import ImageWithText from "../components/ImageWithText"; // Adjust the path if necessary
 import BackToTop from "../components/Back-To-Top"; // Ensure the file path is correct
 import FeaturedServices from "../components/FeaturedServices";
 import Testimonials from "../components/Testimonials"; // Import the new Testimonials section
+import ImageTextBlock from "../components/ImageTextBlock";
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -48,7 +49,7 @@ const Home = () => {
 
   // Carousel slides data
   const slides = [
-    { image: image1, text: "Welcome to Crescendo" },
+    { image: image1, text: "Welcome to Redline Media" },
     { image: image2, text: "Your Creative Partner" },
     { image: image3, text: "Innovative Solutions" },
   ];
@@ -94,7 +95,7 @@ const Home = () => {
           fadeInElements.includes(sectionRefs.current[1]) ? "fade-in" : ""
         }`}
       >
-        <FeaturedServices />
+        <ImageTextBlock />
       </div>
 
       {/* Testimonials Section */}

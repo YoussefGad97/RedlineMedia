@@ -42,7 +42,7 @@ const ImageWithText = () => {
               textAlign: { xs: "center", md: "left" },
             }}
           >
-            Welcome to Crescendo Media!
+            Welcome to Redline Media!
           </Typography>
           <Typography
             variant="body1"
@@ -54,7 +54,7 @@ const ImageWithText = () => {
               width: "90%",
             }}
           >
-            We're thrilled to have you here. At Crescendo Media, we help brands,
+            We're thrilled to have you here. At Redline Media, we help brands,
             startups, and creatives tell their stories through innovative media
             solutions. Whether you're looking to launch a new project, rebrand,
             or take your digital presence to the next level—we're here to make

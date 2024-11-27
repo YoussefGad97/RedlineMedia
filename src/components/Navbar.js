@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/components/Navbar.scss";
+import NavbarLogo from "../assets/images/redline.png";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -38,7 +39,8 @@ const Navbar = () => {
     >
       <div className="container">
         <Link className="navbar-brand" to="/">
-          Crescendo
+          <img src={NavbarLogo} alt="Redline Logo" className="navbar-logo" />
+          REDLINE Media 
         </Link>
         <button
           className={`navbar-toggler ${menuOpen ? "collapsed" : ""}`}

@@ -11,10 +11,28 @@
 }
 
 .navbar .navbar-brand {
+  display: flex; // Align items inside brand link
+  align-items: center; // Center logo vertically
   font-size: 1.5rem;
   color: #ffffff;
   font-weight: bold;
   text-transform: uppercase;
+  gap: 0.5rem; // Add spacing between logo and text (if any text is added)
+}
+
+.navbar .navbar-logo {
+  width: 60px; // Default size for logo
+  height: auto; // Maintain aspect ratio
+  transition: width 0.3s ease-in-out;
+
+  // Adjust logo size for smaller screens
+  @media (max-width: 991px) {
+    width: 40px;
+  }
+
+  @media (max-width: 576px) {
+    width: 30px;
+  }
 }
 
 .navbar-nav .nav-link {
