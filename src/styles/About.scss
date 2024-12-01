@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: center;
 
+    // Mobile responsiveness
     @media (max-width: 768px) {
       height: 50vh; // Slightly smaller for mobile
     }
@@ -21,20 +22,29 @@
         0,
         0,
         0
-      ); // Transparent overlay for better text readability
+      ); // Semi-transparent overlay for better text readability
       padding: 2rem;
       color: #fff;
       width: 50%; // Adjust text container width
-      border:1px;
+      border: 1px solid transparent; // Fix border issue
       border-radius: 10px;
+
+      // Mobile responsiveness for text container
+      @media (max-width: 768px) {
+        width: 80%; // Increase text container width on mobile
+        padding: 1rem; // Reduce padding for mobile
+      }
 
       h1 {
         font-size: 5rem;
         font-weight: bold;
         margin-bottom: 1rem;
-        color:white;
+        color: white;
+
+        // Mobile responsiveness for h1
         @media (max-width: 768px) {
           font-size: 2rem;
+          margin-bottom: 0.5rem; // Reduce margin for better spacing on mobile
         }
       }
 
@@ -42,6 +52,8 @@
         font-size: 1.2rem;
         line-height: 1.6;
         font-family: Arial, Helvetica, sans-serif;
+
+        // Mobile responsiveness for paragraph text
         @media (max-width: 768px) {
           font-size: 1rem;
         }

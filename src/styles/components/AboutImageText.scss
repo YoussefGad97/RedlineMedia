@@ -1,0 +1,91 @@
+.image-with-text {
+  padding: 2rem;
+  background-color: black; // Background for contrast
+
+  .image-section {
+    img {
+      width: 80%; // Image takes 80% width of the container
+      max-width: 500px; // Image doesn't exceed 500px width
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto; // Centers the image within the grid item
+      position: relative;
+
+      // Neon shadow effect on the lower border
+      box-shadow: 0px 10px 20px rgba(205, 27, 27, 0.8),
+        /* Main neon glow */ 0px 5px 10px rgba(205, 27, 27, 0.5); /* Subtle outer glow */
+
+      // Mobile responsiveness
+      @media (max-width: 768px) {
+        width: 100%; // Full width of the container on mobile
+        max-width: none; // Remove max-width constraint on mobile
+      }
+    }
+  }
+
+  .text-section {
+    h2 {
+      color: #cd1b1b; // Title color
+      font-weight: bold;
+      text-align: left;
+
+      // Mobile responsiveness for title alignment
+      @media (max-width: 768px) {
+        text-align: center; // Center the title on mobile
+      }
+    }
+
+    p {
+      color: #ffffff; // Text color
+      line-height: 1.6;
+      font-size: 1rem;
+      text-align: left;
+
+      // Mobile responsiveness for paragraph text alignment
+      @media (max-width: 768px) {
+        text-align: center; // Center the text on mobile
+      }
+    }
+  }
+
+  // Neon glow animation
+  @keyframes neon-glow {
+    0% {
+      box-shadow: 0px 10px 20px rgba(205, 27, 27, 0.8),
+        0px 5px 10px rgba(205, 27, 27, 0.5);
+    }
+    50% {
+      box-shadow: 0px 15px 25px rgba(205, 27, 27, 1),
+        0px 8px 15px rgba(205, 27, 27, 0.7);
+    }
+    100% {
+      box-shadow: 0px 10px 20px rgba(205, 27, 27, 0.8),
+        0px 5px 10px rgba(205, 27, 27, 0.5);
+    }
+  }
+
+  // Applying the neon-glow effect to the image
+  .image-section img {
+    animation: neon-glow 2s infinite ease-in-out;
+  }
+
+  .image-with-text {
+    .image-section img {
+      border: 2px solid rgba(255, 255, 255, 0.1); // Subtle border for the image
+      transition: transform 0.3s ease; // Add hover effect
+      &:hover {
+        transform: scale(1.05); // Slight zoom-in effect
+      }
+    }
+
+    .text-section {
+      h2 {
+        font-family: "Roboto", sans-serif;
+      }
+      p {
+        font-family: "Open Sans", sans-serif;
+      }
+    }
+  }
+}

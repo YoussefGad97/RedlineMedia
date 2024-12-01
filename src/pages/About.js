@@ -4,7 +4,9 @@ import BackToTop from "../components/BackToTop"; // Ensure the file path is corr
 import CallToActionBanner from "../components/CallToActionBanner";
 import Footer from "../components/Footer";
 import landingImage from "../assets/images/About.png"; // Replace with your actual image path
-
+import AboutImageText from "../components/AboutImageText";
+import Team from "../components/Team";
+import Mission from "../components/Mission";
 
 const About = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -59,6 +61,26 @@ const About = () => {
           </div>
         </div>
       </section>
+      <div
+        ref={(el) => (sectionRefs.current[4] = el)}
+        className="fade-in-section"
+      >
+        <AboutImageText />
+      </div>
+
+      <div
+        ref={(el) => (sectionRefs.current[4] = el)}
+        className="fade-in-section"
+      >
+        <Team />
+      </div>
+
+      <div
+        ref={(el) => (sectionRefs.current[4] = el)}
+        className="fade-in-section"
+      >
+        <Mission />
+      </div>
 
       <div
         ref={(el) => (sectionRefs.current[4] = el)}
