@@ -4,25 +4,33 @@
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 100vh; // Moderate height
+    height: 100vh; // Full height of the viewport
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden; // Ensure content does not overflow
 
     // Mobile responsiveness
     @media (max-width: 768px) {
-      height: 50vh; // Slightly smaller for mobile
+      height: 50vh; // Reduce height on mobile
+    }
+
+    // Scroll Effect: Use opacity and translate for the fade-in effect
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px); // Start with a downward offset
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+      &.fade-in {
+        opacity: 1;
+        transform: translateY(0); // Move to original position when in view
+      }
     }
 
     .landing-overlay {
       text-align: center;
-      background-color: rgba(
-        0,
-        0,
-        0,
-        0
-      ); // Semi-transparent overlay for better text readability
+      background-color: rgba(0, 0, 0, 0); // Semi-transparent dark overlay
       padding: 2rem;
       color: #fff;
       width: 50%; // Adjust text container width
@@ -59,5 +67,18 @@
         }
       }
     }
+  }
+}
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  /* Start with a downward offset */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+  &.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    /* Move to original position when in view */
   }
 }

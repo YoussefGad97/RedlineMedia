@@ -2,19 +2,35 @@
   padding: 2rem;
   background-color: black; // Background for contrast
 
+  display: flex;
+  justify-content: center; // Horizontally center the content
+  align-items: center; // Vertically center the content
+  flex-direction: row; // Keep side by side by default (desktop view)
+  gap: 2rem; // Adds spacing between the image and text section
+
+  @media (max-width: 768px) {
+    flex-direction: column; // Stack image and text vertically on mobile
+    gap: 1rem; // Reduce spacing on mobile
+  }
+
   .image-section {
+    display: flex;
+    justify-content: center; // Horizontally center the image
+    align-items: center; // Vertically center the image
+
     img {
-      width: 80%; // Image takes 80% width of the container
+      width: 80%; // Image takes 80% width of the container on desktop
       max-width: 500px; // Image doesn't exceed 500px width
       height: auto;
       border-radius: 8px;
       display: block;
-      margin: 0 auto; // Centers the image within the grid item
+      margin: 0 auto; // Centers the image within the container
       position: relative;
 
       // Neon shadow effect on the lower border
       box-shadow: 0px 10px 20px rgba(205, 27, 27, 0.8),
-        /* Main neon glow */ 0px 5px 10px rgba(205, 27, 27, 0.5); /* Subtle outer glow */
+        0px 5px 10px rgba(205, 27, 27, 0.5);
+      /* Subtle outer glow */
 
       // Mobile responsiveness
       @media (max-width: 768px) {
@@ -25,14 +41,19 @@
   }
 
   .text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Vertically center the text
+    align-items: center; // Horizontally center the text
+
     h2 {
       color: #cd1b1b; // Title color
       font-weight: bold;
-      text-align: left;
+      text-align: center; // Center the title
 
       // Mobile responsiveness for title alignment
       @media (max-width: 768px) {
-        text-align: center; // Center the title on mobile
+        font-size: 1.8rem; // Adjust font size for mobile
       }
     }
 
@@ -40,25 +61,27 @@
       color: #ffffff; // Text color
       line-height: 1.6;
       font-size: 1rem;
-      text-align: left;
+      text-align: center; // Center the text
 
-      // Mobile responsiveness for paragraph text alignment
+      // Mobile responsiveness for paragraph text
       @media (max-width: 768px) {
-        text-align: center; // Center the text on mobile
+        font-size: 0.9rem; // Slightly smaller font size on mobile for better readability
       }
     }
   }
 
-  // Neon glow animation
+  // Neon glow animation for image
   @keyframes neon-glow {
     0% {
       box-shadow: 0px 10px 20px rgba(205, 27, 27, 0.8),
         0px 5px 10px rgba(205, 27, 27, 0.5);
     }
+
     50% {
       box-shadow: 0px 15px 25px rgba(205, 27, 27, 1),
         0px 8px 15px rgba(205, 27, 27, 0.7);
     }
+
     100% {
       box-shadow: 0px 10px 20px rgba(205, 27, 27, 0.8),
         0px 5px 10px rgba(205, 27, 27, 0.5);
@@ -74,6 +97,7 @@
     .image-section img {
       border: 2px solid rgba(255, 255, 255, 0.1); // Subtle border for the image
       transition: transform 0.3s ease; // Add hover effect
+
       &:hover {
         transform: scale(1.05); // Slight zoom-in effect
       }
@@ -83,6 +107,7 @@
       h2 {
         font-family: "Roboto", sans-serif;
       }
+
       p {
         font-family: "Open Sans", sans-serif;
       }

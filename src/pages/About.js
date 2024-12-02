@@ -61,41 +61,46 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      {/* Each section now has its own ref and index */}
       <div
-        ref={(el) => (sectionRefs.current[4] = el)}
+        ref={(el) => (sectionRefs.current[0] = el)}
         className="fade-in-section"
       >
         <AboutImageText />
       </div>
 
       <div
-        ref={(el) => (sectionRefs.current[4] = el)}
+        ref={(el) => (sectionRefs.current[1] = el)}
         className="fade-in-section"
       >
         <Team />
       </div>
 
       <div
-        ref={(el) => (sectionRefs.current[4] = el)}
+        ref={(el) => (sectionRefs.current[2] = el)}
         className="fade-in-section"
       >
         <Mission />
       </div>
 
       <div
-        ref={(el) => (sectionRefs.current[4] = el)}
+        ref={(el) => (sectionRefs.current[3] = el)}
         className="fade-in-section"
       >
         <CallToActionBanner />
       </div>
+
       <div
-        ref={(el) => (sectionRefs.current[5] = el)}
+        ref={(el) => (sectionRefs.current[4] = el)}
         className="fade-in-section"
       >
         <Footer />
       </div>
+
       <BackToTop />
     </div>
   );
 };
+
 export default About;

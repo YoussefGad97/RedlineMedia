@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/components/Team.scss";
-import Member1 from "../assets/images/Amr.png"
+import Member1 from "../assets/images/client-2.png"
 
 
 const teamMembers = [
