@@ -1,0 +1,116 @@
+.service-cards-container {
+    display: flex;
+    justify-content: center; // Center the cards horizontally
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.service-card {
+    width: 400px; // Fixed width of the card
+    height: 500px; // Fixed height of the card
+    perspective: 1000px; // Allow for the 3D flip effect
+    cursor: pointer;
+
+    .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+    }
+
+    &.flipped .card-inner {
+        transform: rotateY(180deg); // Flip the card when clicked
+    }
+
+    .card-front,
+    .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden; // Hide the back side during flip
+    }
+
+    /* Front - Image and Service Name */
+    .card-front {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f0f0f0;
+        border-radius: 10px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // Make image fill the card properly
+        }
+
+        h3 {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 1.5rem;
+        }
+    }
+
+    /* Back - Form */
+    .card-back {
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        h4 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            input,
+            textarea {
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 1rem;
+            }
+
+            button {
+                padding: 10px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #0056b3;
+                }
+            }
+        }
+    }
+}
+
+// Responsive design for mobile
+@media (max-width: 768px) {
+    .service-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 90%; // Make cards responsive and smaller on mobile
+        height: auto; // Allow the height to adjust based on content
+    }
+}
