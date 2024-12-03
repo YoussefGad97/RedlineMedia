@@ -3,11 +3,11 @@
   flex-direction: column;
   align-items: center;
   margin: 40px 0;
-  
+
   .testimonial-left-box {
     text-align: center;
     margin-bottom: 40px;
-    
+
     h2 {
       font-size: 2rem;
     }
@@ -39,7 +39,8 @@
       padding: 20px;
       border-radius: 10px;
       cursor: pointer;
-      transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease, font-size 0.3s ease;
+      transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease,
+        font-size 0.3s ease;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -58,7 +59,6 @@
           font-size: 1rem;
           color: red;
           font-family: Arial, Helvetica, sans-serif;
-
         }
 
         .testimonial-text {
@@ -66,18 +66,44 @@
           line-height: 1.6;
           transition: font-size 0.3s ease; // Smooth font size transition
           font-family: Arial, Helvetica, sans-serif;
-
         }
       }
+    }
+  }
 
-      &:hover {
-        transform: scale(1.1); // Enlarge the box
-        z-index: 10;
-        box-shadow: 0 0 15px 4px #ff3333; // Neon red shadow
+  // Mobile View (max-width: 768px)
+  @media (max-width: 768px) {
+    .testimonial-left-box h2 {
+      font-size: 1.5rem; // Adjust heading size
+    }
+
+    .testimonial-left-box h3 {
+      font-size: 1.5rem;
+    }
+
+    .testimonial-left-box p {
+      font-size: 1rem;
+    }
+
+    .testimonial-grid {
+      grid-template-columns: 1fr; // Stack testimonial boxes vertically
+      padding: 20px; // Add more padding for mobile view
+    }
+
+    .testimonial-box {
+      padding: 15px; // Reduce padding in mobile view
+      margin-bottom: 20px; // Add margin between the boxes
+
+      .testimonial-name {
+        font-size: 1.2rem; // Adjust name font size
       }
 
-      &:hover .testimonial-text {
-        font-size: 1.2rem; // Increase font size on hover
+      .testimonial-company {
+        font-size: 0.9rem; // Adjust company font size
+      }
+
+      .testimonial-text {
+        font-size: 0.9rem; // Adjust text size
       }
     }
   }

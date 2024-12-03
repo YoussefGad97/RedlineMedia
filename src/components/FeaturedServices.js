@@ -1,32 +1,32 @@
 import React from "react";
 import "../styles/components/FeaturedServices.scss"; // SCSS for the section
-import Landing1 from "../assets/images/landing1.jpg"
-import Landing2 from "../assets/images/landing2.jpg"
-import Landing3 from "../assets/images/landing3.jpg"
-
-
-
-
+import { FaRocket, FaLaptopCode, FaPaintBrush } from "react-icons/fa"; // Import icons
+import Landing1 from "../assets/images/landing1.jpg";
+import Landing2 from "../assets/images/landing2.jpg";
+import Landing3 from "../assets/images/landing3.jpg";
 
 const FeaturedServices = () => {
   const services = [
     {
-      image: Landing1, // Path to your image
-      title: "Creative Brilliance, Engineered for Impact",
+      image: Landing1,
+      icon: <FaRocket />,
+      title: "Creative Brilliance",
       description:
-        "At Redline Media, we believe that creativity is the cornerstone of exceptional marketing. Our team of skilled professionals specializes in blending innovative ideas with strategic execution to create campaigns that captivate audiences and drive measurable results. From cutting-edge graphic design to compelling motion graphics, we ensure your brand leaves a lasting impression.",
+        "Innovative ideas with strategic execution to create campaigns that captivate and deliver results.",
     },
     {
-      image: Landing2, // Path to your image
-      title: "Your Success, Our Priority",
+      image: Landing2,
+      icon: <FaLaptopCode />,
+      title: "Web Development Excellence",
       description:
-        "Our mission is to help your business thrive in a competitive landscape. With expertise in web development, social media management, and lead generation, Redline Media crafts customized solutions designed to grow your audience, amplify your message, and convert opportunities into results. Partner with us to transform challenges into success stories.",
+        "Custom websites with cutting-edge technologies that offer great user experiences.",
     },
     {
-      image: Landing3, // Path to your image
-      title: "Precision in Every Pixel",
+      image: Landing3,
+      icon: <FaPaintBrush />,
+      title: "Design That Inspires",
       description:
-        "At Redline Media, attention to detail defines everything we do. Whether it's ensuring flawless software testing or designing visually stunning websites, we focus on delivering perfection. Our commitment to quality and precision guarantees that every project reflects your brand's values and resonates with your audience.",
+        "Visually stunning graphics that capture the essence of your brand and leave a lasting impression.",
     },
   ];
 
@@ -35,13 +35,13 @@ const FeaturedServices = () => {
       <div className="services-container">
         {services.map((service, index) => (
           <div
-            className={`service-card ${index % 2 === 0 ? "odd" : "even"}`}
+            className="service-card"
             key={index}
+            style={{ backgroundImage: `url(${service.image})` }}
           >
-            <div className="image">
-              <img src={service.image} alt={service.title} />
-            </div>
-            <div>
+            <div className="image"></div> {/* Dark overlay */}
+            <div className="content">
+              <div className="icon">{service.icon}</div>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
             </div>

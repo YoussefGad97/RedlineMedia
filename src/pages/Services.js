@@ -4,7 +4,7 @@ import BackToTop from "../components/BackToTop";
 import CallToActionBanner from "../components/CallToActionBanner";
 import Footer from "../components/Footer";
 import ServiceCards from "../components/ServiceCards";
-import landingImage from "../assets/images/slide2.jpg";
+import landingImage from "../assets/images/Services.jpg";
 
 const Services = () => {
     const [isMobile, setIsMobile] = useState(false);

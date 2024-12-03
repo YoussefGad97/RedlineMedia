@@ -1,140 +1,82 @@
 .featured-services {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 40px 20px;
   font-family: Arial, Helvetica, sans-serif;
 
-  .section-title {
-    font-size: 2.8rem;
-    /* Increased font size */
-    margin-bottom: 40px;
-    text-align: center;
-    color: red;
-    /* Primary color */
-  }
-
   .services-container {
     display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 100%;
-    max-width: 1200px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
 
     .service-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      width: 100%;
-      padding: 20px;
-      background-color: black;
-      color: white;
+      position: relative;
+      background-color: #000;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: scale(1.05);
-      }
+      overflow: hidden;
+      color: white;
+      height: 300px; // Set fixed height for the cards
 
       .image {
-        img {
-          max-width: 150px;
-          /* Image size */
-          height: auto;
-          border-radius: 8px;
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        opacity: 0.6; // Darken the background image
+      }
+
+      .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 2;
+        width: 80%;
+        color: white;
+
+        .icon {
+          font-size: 50px;
+          margin-bottom: 20px;
+          color: #fff; // White icon color
+        }
+
+        h3 {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #fff;
+        }
+
+        p {
+          font-size: 1rem;
+          color: #ddd;
         }
       }
-
-      .text {
-        max-width: 60%;
-        /* Restrict text width */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      h3 {
-        font-size: 1.8rem;
-        /* Increased font size */
-        font-weight: bold;
-        margin: 0;
-        color: red;
-        /* Accent color */
-      }
-
-      p {
-        font-size: 1.1rem;
-        /* Slightly increased font size */
-        color: #dcdcdc;
-      }
-
-      &.odd {
-        flex-direction: row-reverse;
-        /* Reverse image and text on odd items */
-        text-align: right;
-      }
-
-      &.even {
-        text-align: left;
-      }
     }
   }
-}
 
-// Mobile view adjustments
-@media (max-width: 768px) {
-  .featured-services {
-    padding: 20px;
-  }
-
-  .services-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .service-card {
-    flex-direction: row;
-    /* Keep the image and text side by side */
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    /* Ensure it uses full width */
-
-    .image {
-      flex: 1;
-      /* Make image take equal space */
-      max-width: 50%;
-
-      /* Limit the image width to 50% */
-      img {
-        width: 100%;
-        /* Make sure the image fills the container */
-        height: auto;
-      }
+  // Mobile View (max-width: 768px)
+  @media (max-width: 768px) {
+    .services-container {
+      grid-template-columns: 1fr;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
-    .text {
-      flex: 1;
-      /* Make text take equal space */
-      max-width: 50%;
-      /* Limit the text width to 50% */
-      text-align: left;
-      /* Align text left */
-      padding-left: 10px;
-      /* Add some space between the image and text */
+    .service-card {
+      height: 250px; // Adjust card height for mobile
     }
 
-    h3 {
-      font-size: 1.5rem;
-      /* Adjust font size on mobile */
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      /* Adjust font size for mobile */
+    .content {
+      width: 90%; // Make text block responsive
     }
   }
 }

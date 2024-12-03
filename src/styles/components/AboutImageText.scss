@@ -7,16 +7,22 @@
   align-items: center; // Vertically center the content
   flex-direction: row; // Keep side by side by default (desktop view)
   gap: 2rem; // Adds spacing between the image and text section
+  max-width: 1200px; // Limit max-width for large screens
+  margin: 0 auto; // Center the container on the page
 
   @media (max-width: 768px) {
     flex-direction: column; // Stack image and text vertically on mobile
     gap: 1rem; // Reduce spacing on mobile
+    padding: 1rem; // Add smaller padding on mobile
+    max-width: 90%; // Limit max width for smaller screens
+    text-align: center;
   }
 
   .image-section {
     display: flex;
     justify-content: center; // Horizontally center the image
     align-items: center; // Vertically center the image
+    width: 100%; // Make sure the image section takes full width in its container
 
     img {
       width: 80%; // Image takes 80% width of the container on desktop
@@ -45,6 +51,7 @@
     flex-direction: column;
     justify-content: center; // Vertically center the text
     align-items: center; // Horizontally center the text
+    width: 100%; // Make sure the text section takes full width in its container
 
     h2 {
       color: #cd1b1b; // Title color

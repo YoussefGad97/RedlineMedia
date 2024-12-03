@@ -20,8 +20,8 @@ const ImageWithText = () => {
             alt="Welcome"
             sx={{
               width: "100%", // Image scales responsively
-              maxWidth: "600px", // Restrict maximum width for medium size
-              height: "800px",
+              maxWidth: "400px", // Restrict maximum width for medium size
+              height: "600px",
               borderRadius: "8px",
               boxShadow: "0px 0px 20px 4px rgba(205, 27, 27, 0.7)", // Neon shadow effect
               display: "block",
@@ -39,7 +39,7 @@ const ImageWithText = () => {
             sx={{
               color: "#cd1b1b", // Title color
               fontWeight: "bold",
-              textAlign: { xs: "center", md: "center" },
+              textAlign: { xs: "center", md: "left" },
             }}
           >
             Our Story
@@ -50,7 +50,7 @@ const ImageWithText = () => {
               color: "#ffffff", // Text color for better contrast
               lineHeight: 1.8,
               fontSize: "1.1rem",
-              textAlign: { xs: "center", md: "center" },
+              textAlign: { xs: "center", md: "left" },
               width: "90%",
             }}
           >
