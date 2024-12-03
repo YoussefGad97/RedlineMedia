@@ -118,7 +118,6 @@ const Home = () => {
         <Footer />
       </div>
 
-      <BackToTop />
     </div>
   );
 };

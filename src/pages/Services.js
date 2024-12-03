@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "../styles/Services.scss";
-import BackToTop from "../components/BackToTop";
 import CallToActionBanner from "../components/CallToActionBanner";
 import Footer from "../components/Footer";
 import ServiceCards from "../components/ServiceCards";
@@ -84,7 +83,6 @@ const Services = () => {
                 <Footer />
             </div>
 
-            <BackToTop />
         </div>
     );
 };

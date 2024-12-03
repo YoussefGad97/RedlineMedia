@@ -1,9 +1,12 @@
 .service-cards-container {
   display: flex;
   justify-content: center; // Center the cards horizontally
+  align-items: center; // Center the cards vertically
   flex-wrap: wrap;
   gap: 20px;
   padding: 20px;
+  box-sizing: border-box;
+  flex-direction: row; // Default flex direction for larger screens
 }
 
 .service-card {
@@ -11,6 +14,9 @@
   height: 500px; // Fixed height of the card
   perspective: 1000px; // Allow for the 3D flip effect
   cursor: pointer;
+  display: flex; // Ensure cards are flex containers for alignment
+  justify-content: center;
+  align-items: center;
 
   .card-inner {
     position: relative;
@@ -106,21 +112,35 @@
 // Responsive design for mobile
 @media (max-width: 768px) {
   .service-cards-container {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; // Stack the cards in a column on mobile
+    align-items: center; // Center the cards horizontally
+    height: auto; // Allow the container to adjust based on content
+    padding: 10px; // Optional: Reduce padding for mobile view
   }
 
   .service-card {
-    width: 90%; // Make cards responsive and smaller on mobile
+    width: 90%; // Make cards smaller on mobile
     height: auto; // Allow the height to adjust based on content
-  }
-}
+    margin-bottom: 20px; // Add space between stacked cards
+    perspective: 800px; // Slightly reduced perspective for mobile
+    min-height: 300px; // Set a minimum height for better appearance
 
-// Bootstrap Grid classes
-@media (min-width: 768px) {
-  .service-cards-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    // Optional: Adjust font sizes for better readability
+    .card-front h3 {
+      font-size: 1.2rem; // Adjust title size for mobile
+    }
+
+    .card-back h4 {
+      font-size: 1.2rem; // Adjust subtitle size for mobile
+    }
+
+    form input,
+    form textarea {
+      font-size: 0.9rem; // Adjust input size for mobile
+    }
+
+    form button {
+      font-size: 0.9rem; // Adjust button size for mobile
+    }
   }
 }
