@@ -1,33 +1,88 @@
-.App {
-  text-align: center;
+/* General reset for body and html */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent scrolling overflow */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Locomotive Scroll container */
+[data-scroll-container] {
+  height: 100vh;
+  overflow: auto; /* Allow scrolling inside the container */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Ensure the footer stays in place */
+footer {
+  position: relative;
+  margin-top: 50px; /* Adjust as needed to ensure space between content and footer */
+}
+
+/* Fade-in animation styles */
+.services .fade-in-section {
+  opacity: 0;
+  transform: translateY(20px); /* Initially hidden with downward offset */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.services .fade-in-section.fade-in {
+  opacity: 1;
+  transform: translateY(0); /* Move to original position when in view */
+}
+
+/* Styles for services landing page with background image */
+.services-landing .landing-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh; /* Full height of the viewport */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Ensure no overflow content */
+  opacity: 90%;
+}
+
+/* Mobile responsiveness for landing image */
+@media (max-width: 768px) {
+  .services-landing .landing-image {
+    height: 50vh; /* Reduce height for mobile */
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Fade-in animation for the overlay */
+.services-landing .landing-overlay {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay */
+  padding: 2rem;
   color: white;
+  width: 50%; /* Adjust width of text container */
+  border: 1px solid transparent; /* Fix border issue */
+  border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Mobile responsiveness for the overlay */
+@media (max-width: 768px) {
+  .services-landing .landing-overlay {
+    width: 80%; /* Increase text container width on mobile */
+    padding: 1rem; /* Reduce padding on mobile */
+  }
+
+  .services-landing .landing-overlay h1 {
+    font-size: 2.5rem; /* Adjust font size for h1 on mobile */
+    margin-bottom: 0.5rem; /* Reduce margin for better spacing */
+  }
+
+  .services-landing .landing-overlay p {
+    font-size: 1rem; /* Adjust font size for paragraph text on mobile */
+    line-height: 1.4; /* Adjust line height */
+  }
 }
 
+/* Animation keyframes for the spinning logo */
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

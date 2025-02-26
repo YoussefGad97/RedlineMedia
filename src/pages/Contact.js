@@ -1,37 +1,30 @@
 import React from "react";
 import "../styles/Contact.scss";
-import Navbar from "../components/Navbar"; // Adjust the path as per your project structure
-import Footer from "../components/Footer"; // Adjust the path as per your project structure
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const ContactPage = () => {
   return (
-    <>
-      <Navbar />
-      <div className="contact-page">
-        {/* Header Section */}
+    <div className="contact-page page-wrapper">
+      <div className="content-wrapper">
         <header className="contact-header">
           <div className="header-content">
             <h1>Contact Us</h1>
           </div>
         </header>
 
-        {/* Main Content Section */}
         <main className="contact-main">
           <div className="contact-left">
             <h2>Get In Touch</h2>
-            <form className="contact-form">
-              <input type="text" name="name" placeholder="Name" required />
-              <input type="tel" name="phone" placeholder="Phone" required />
-              <input type="email" name="email" placeholder="Email" required />
-              <textarea
-                name="message"
-                rows="5"
-                placeholder="Your Message"
-                required
-              ></textarea>
+            <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+              <input type="text" name="name" placeholder="Name" required aria-label="Name" />
+              <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone" />
+              <input type="email" name="email" placeholder="Email" required aria-label="Email" />
+              <textarea name="message" rows="5" placeholder="Your Message" required aria-label="Message"></textarea>
               <button type="submit">Submit</button>
             </form>
           </div>
+
           <div className="contact-right">
             <iframe
               title="Google Maps"
@@ -44,7 +37,7 @@ const ContactPage = () => {
         </main>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

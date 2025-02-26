@@ -1,46 +1,47 @@
+.about {
+  background-color: #fff;
+
+  &.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .about-landing {
   .landing-image {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 100vh; // Full height of the viewport
+    height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; // Ensure content does not overflow
+    overflow: hidden;
 
-    // Mobile responsiveness
     @media (max-width: 768px) {
-      height: 50vh; // Reduce height on mobile
-    }
-
-    // Scroll Effect: Use opacity and translate for the fade-in effect
-    .fade-in-section {
-      opacity: 0;
-      transform: translateY(20px); // Start with a downward offset
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-
-      &.fade-in {
-        opacity: 1;
-        transform: translateY(0); // Move to original position when in view
-      }
+      height: 50vh;
     }
 
     .landing-overlay {
       text-align: center;
-      background-color: rgba(0, 0, 0, 0); // Semi-transparent dark overlay
+      background-color: rgba(0, 0, 0, 0);
       padding: 2rem;
       color: #fff;
-      width: 50%; // Adjust text container width
-      border: 1px solid transparent; // Fix border issue
+      width: 50%;
       border-radius: 10px;
 
-      // Mobile responsiveness for text container
       @media (max-width: 768px) {
-        width: 80%; // Increase text container width on mobile
-        padding: 1rem; // Reduce padding for mobile
+        width: 80%;
+        padding: 1rem;
       }
 
       h1 {
@@ -49,10 +50,9 @@
         margin-bottom: 1rem;
         color: white;
 
-        // Mobile responsiveness for h1
         @media (max-width: 768px) {
           font-size: 2rem;
-          margin-bottom: 0.5rem; // Reduce margin for better spacing on mobile
+          margin-bottom: 0.5rem;
         }
       }
 
@@ -61,7 +61,6 @@
         line-height: 1.6;
         font-family: Arial, Helvetica, sans-serif;
 
-        // Mobile responsiveness for paragraph text
         @media (max-width: 768px) {
           font-size: 1rem;
         }
@@ -80,5 +79,17 @@
     opacity: 1;
     transform: translateY(0);
     /* Move to original position when in view */
+  }
+}
+
+.about {
+  &.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-wrapper {
+    flex: 1;
   }
 }

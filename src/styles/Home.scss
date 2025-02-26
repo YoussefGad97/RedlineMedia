@@ -1,4 +1,12 @@
 .home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .sections-container {
+    flex: 1;
+  }
+
   /* Fade-in animation */
   .fade-in-section {
     opacity: 0;
@@ -9,11 +17,21 @@
       opacity: 1;
       transform: translateY(0); /* Move to original position */
     }
+
+    margin: 6rem 0; // Consistent vertical spacing between sections
+    
+    &:first-child {
+      margin-top: 4rem; // Less space after the carousel
+    }
+    
+    &:last-child {
+      margin-bottom: 0; // No extra space before footer
+    }
   }
 
   .slide-image {
     position: relative;
-    height: 900px; /* Adjust the height as needed */
+    height: 750px; /* Adjust the height as needed */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -26,7 +44,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.1); /* Adjust the opacity for desired darkness */
+      background: rgba(
+        0,
+        0,
+        0,
+        0.1
+      ); /* Adjust the opacity for desired darkness */
       z-index: 1;
     }
 
@@ -56,8 +79,14 @@
       @media (max-width: 768px) {
         font-size: 3rem; /* Reduce the font size on mobile */
         bottom: 35%; /* Adjust position on mobile */
+        left: 5%; /* Adjust position for better alignment on smaller screens */
       }
     }
+  }
+
+  // Adjust carousel spacing
+  .carousel {
+    margin-bottom: 4rem;
   }
 }
 
@@ -73,7 +102,7 @@
 }
 
 .testimonials {
-  padding: 4rem 2rem;
+  padding: 6rem 2rem; // Match the new spacing rhythm
   background-color: #fff; // White background for contrast
   text-align: center;
 
@@ -141,5 +170,42 @@
       padding: 1.5rem; /* Reduce padding for mobile */
       max-width: 90%; /* Make the cards take up more space on mobile */
     }
+  }
+}
+
+/* General Mobile Responsiveness */
+@media (max-width: 768px) {
+  .home {
+    .carousel-caption h1 {
+      font-size: 3rem; /* Smaller heading size for mobile */
+      bottom: 35%; /* Adjust caption positioning */
+      left: 5%; /* Ensure it's centered */
+    }
+
+    .fade-in-section {
+      margin: 4rem 0; // Slightly reduced spacing on mobile
+      
+      &:first-child {
+        margin-top: 3rem;
+      }
+    }
+    
+    .carousel {
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* Ensure padding and margins are responsive */
+  .testimonials {
+    padding: 4rem 1rem;
+  }
+
+  .testimonial-card {
+    padding: 1.2rem; /* Slightly reduce padding for mobile */
+  }
+
+  .section-title {
+    font-size: 2rem; /* Adjust the font size for mobile */
+    margin-bottom: 1.5rem;
   }
 }

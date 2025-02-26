@@ -1,86 +1,82 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../styles/components/Navbar.scss";
-import NavbarLogo from "../assets/images/redline.png";
+import "../styles/Navbar.scss";
+import logo from "../assets/images/logo.png";
 
 const Navbar = () => {
-  const [scrolling, setScrolling] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
 
-  // Handle scroll behavior
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-
-    const handleScroll = () => {
-      window.requestAnimationFrame(() => {
-        if (window.scrollY > lastScrollY) {
-          setScrolling(true); // Scroll down
-        } else {
-          setScrolling(false); // Scroll up
-        }
-        lastScrollY = window.scrollY;
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Toggle mobile menu
   const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
+    setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    let timeoutId;
+    const handleScroll = () => {
+      const currentScrollPos = window.scrollY;
+      const isScrollingUp = prevScrollPos > currentScrollPos;
+      const isAtTop = currentScrollPos < 100; // Increased from 10 for better UX
+
+      // Clear any existing timeout to prevent multiple triggers
+      if (timeoutId) clearTimeout(timeoutId);
+
+      // Only update state if scroll position changes significantly
+      if (Math.abs(currentScrollPos - prevScrollPos) > 5) {
+        setVisible(isScrollingUp || isAtTop);
+        setPrevScrollPos(currentScrollPos);
+      }
+
+      // Auto-show navbar if user stops scrolling near top
+      if (currentScrollPos < 200) {
+        timeoutId = setTimeout(() => setVisible(true), 500);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [prevScrollPos]);
+
   return (
-    <nav
-      className={`navbar navbar-expand-lg navbar-dark fixed-top ${
-        scrolling ? "navbar-hidden" : ""
-      }`}
-    >
-      <div className="container">
-        <Link className="navbar-brand" to="/">
-          <img src={NavbarLogo} alt="Redline Logo" className="navbar-logo" />
-          REDLINE Media 
+    <nav className={`navbar ${visible ? 'visible' : 'hidden'}`}>
+      <div className="navbar-container">
+        <Link to="/" className="navbar-brand">
+          <img src={logo} alt="Logo" className="navbar-logo" />
+          <span className="navbar-brand-text"></span>
         </Link>
-        <button
-          className={`navbar-toggler ${menuOpen ? "collapsed" : ""}`}
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded={menuOpen ? "true" : "false"}
-          aria-label="Toggle navigation"
-          onClick={toggleMenu}
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div
-          className={`collapse navbar-collapse ${menuOpen ? "show" : ""}`}
-          id="navbarNav"
-        >
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">
-                About
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/services">
-                Services
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/contact">
-                Contact
-              </Link>
-            </li>
-          </ul>
+
+        <div className={`menu-icon ${isOpen ? "open" : ""}`} onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+
+        <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
+          <li className="nav-item">
+            <Link to="/" className="nav-link" onClick={() => setIsOpen(false)}>
+              Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/about" className="nav-link" onClick={() => setIsOpen(false)}>
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/services" className="nav-link" onClick={() => setIsOpen(false)}>
+              Services
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/contact" className="nav-link" onClick={() => setIsOpen(false)}>
+              Contact
+            </Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );

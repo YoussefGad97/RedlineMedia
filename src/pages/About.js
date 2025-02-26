@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/About.scss"; // Ensure this points to the correct SCSS file
 import BackToTop from "../components/BackToTop"; // Ensure the file path is correct
 import CallToActionBanner from "../components/CallToActionBanner";
@@ -10,7 +10,6 @@ import Mission from "../components/Mission";
 
 const About = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const sectionRefs = useRef([]);
 
   // Screen size detection for mobile responsiveness
   useEffect(() => {
@@ -20,84 +19,33 @@ const About = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Intersection Observer for fade-in effects
-  useEffect(() => {
-    const observerOptions = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.1, // Trigger fade-in when 10% is visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("fade-in");
-        }
-      });
-    }, observerOptions);
-
-    sectionRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <div className="about">
-      <section className="about-landing">
-        <div
-          className="landing-image"
-          style={{
-            backgroundImage: `url(${landingImage})`,
-          }}
-        >
-          <div className="landing-overlay">
-            <h1>About Us</h1>
-            <p>
-              Discover our journey, values, and the passion that drives us to
-              deliver excellence. Let's build something remarkable together.
-            </p>
+    <div className="page-wrapper">
+      <div className="content-wrapper">
+        {/* Landing Section */}
+        <section className="about-landing">
+          <div
+            className="landing-image"
+            style={{
+              backgroundImage: `url(${landingImage})`,
+            }}
+          >
+            <div className="landing-overlay">
+              <h1>About Us</h1>
+              <p>
+                Discover our journey, values, and the passion that drives us to
+                deliver excellence. Let's build something remarkable together.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Each section now has its own ref and index */}
-      <div
-        ref={(el) => (sectionRefs.current[0] = el)}
-        className="fade-in-section"
-      >
         <AboutImageText />
-      </div>
-
-      <div
-        ref={(el) => (sectionRefs.current[1] = el)}
-        className="fade-in-section"
-      >
         <Team />
-      </div>
-
-      <div
-        ref={(el) => (sectionRefs.current[2] = el)}
-        className="fade-in-section"
-      >
         <Mission />
-      </div>
-
-      <div
-        ref={(el) => (sectionRefs.current[3] = el)}
-        className="fade-in-section"
-      >
         <CallToActionBanner />
       </div>
-
-      <div
-        ref={(el) => (sectionRefs.current[4] = el)}
-        className="fade-in-section"
-      >
-        <Footer />
-      </div>
-
+      <Footer />
       <BackToTop />
     </div>
   );

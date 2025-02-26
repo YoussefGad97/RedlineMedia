@@ -3,11 +3,23 @@
   color: #fff;
   font-family: "Roboto", "Helvetica", sans-serif;
 
+  &.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  .content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
 
   .contact-header {
     position: relative;
-    height: 80vh;
-    background: url("../assets/images/contact1.jpg") center/cover no-repeat ;
+    height: 60vh;
+    background: url("../assets/images/contact1.jpg") center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +27,7 @@
     .header-content {
       text-align: center;
       h1 {
-        color: red;
+        color: white;
         font-family: "Bebas Neue", sans-serif;
         font-size: 4rem;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -24,10 +36,11 @@
   }
 
   .contact-main {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 2rem;
 
     .contact-left {

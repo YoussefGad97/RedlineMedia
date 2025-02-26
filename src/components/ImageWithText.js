@@ -39,10 +39,10 @@ const ImageWithText = () => {
             sx={{
               color: "#cd1b1b", // Title color
               fontWeight: "bold",
-              textAlign: { xs: "center", md: "left" },
+              textAlign: { xs: "center", md: "Center" },
             }}
           >
-            Welcome to Redline Media!
+            What We Offer!
           </Typography>
           <Typography
             variant="body1"
@@ -50,15 +50,14 @@ const ImageWithText = () => {
               color: "#ffffff", // Text color for better contrast
               lineHeight: 1.8,
               fontSize: "1.1rem",
-              textAlign: { xs: "center", md: "left" },
+              textAlign: { xs: "center", md: "Center" },
               width: "90%",
             }}
           >
-            We're thrilled to have you here. At Redline Media, we help brands,
-            startups, and creatives tell their stories through innovative media
-            solutions. Whether you're looking to launch a new project, rebrand,
-            or take your digital presence to the next level—we're here to make
-            it happen.
+            At Redline Media, we deliver top-tier marketing services tailored to
+            elevate your brand. From cutting-edge strategies to creative
+            solutions, our team is dedicated to driving impactful results that
+            help your business thrive.
           </Typography>
         </Grid>
       </Grid>

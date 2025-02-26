@@ -1,90 +1,329 @@
 .services {
+  background-color: black;
 
-    /* Fade-in animation */
-    .fade-in-section {
-        opacity: 0;
-        transform: translateY(20px);
-        /* Initially hidden with a downward offset */
-        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  &.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
 
-        &.fade-in {
-            opacity: 1;
-            transform: translateY(0);
-            /* Move to original position */
-        }
+  .content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Fade-in animation */
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    /* Initially hidden with a downward offset */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+
+    &.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+      /* Move to original position */
     }
+  }
 }
 
 .services-landing {
-    .landing-image {
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100%;
-        height: 100vh; // Full height of the viewport
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden; // Ensure content does not overflow
-        opacity: 90%;
+  .landing-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 0.9;
 
-        // Mobile responsiveness
-        @media (max-width: 768px) {
-            height: 50vh; // Reduce height on mobile
-        }
-
-        // Scroll Effect: Use opacity and translate for the fade-in effect
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(20px); // Start with a downward offset
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-
-            &.fade-in {
-                opacity: 1;
-                transform: translateY(0); // Move to original position when in view
-            }
-        }
-
-        .landing-overlay {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.4); // Semi-transparent dark overlay
-            padding: 2rem;
-            color: white;
-            width: 50%; // Adjust text container width
-            border: 1px solid transparent; // Fix border issue
-            border-radius: 10px;
-
-            // Mobile responsiveness for text container
-            @media (max-width: 768px) {
-                width: 80%; // Increase text container width on mobile
-                padding: 1rem; // Reduce padding for mobile
-            }
-
-            h1 {
-                font-size: 5rem;
-                font-weight: bold;
-                margin-bottom: 1rem;
-                color: #FB3601;
-
-                // Mobile responsiveness for h1
-                @media (max-width: 768px) {
-                    font-size: 2rem;
-                    margin-bottom: 0.5rem; // Reduce margin for better spacing on mobile
-                }
-            }
-
-            p {
-                font-size: 1.2rem;
-                font-weight: 700;
-                line-height: 1.6;
-                font-family: Arial, Helvetica, sans-serif;
-
-                // Mobile responsiveness for paragraph text
-                @media (max-width: 768px) {
-                    font-size: 1rem;
-                }
-            }
-        }
+    @media (max-width: 768px) {
+      height: 50vh;
     }
+
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(20px); /* Start with a downward offset */
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+      &.fade-in {
+        opacity: 1;
+        transform: translateY(0); /* Move to original position when in view */
+      }
+    }
+
+    .landing-overlay {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark overlay */
+      padding: 2rem;
+      color: white;
+      width: 50%; /* Adjust text container width */
+      border-radius: 10px;
+
+      /* Mobile responsiveness for text container */
+      @media (max-width: 768px) {
+        width: 80%; /* Increase text container width on mobile */
+        padding: 1rem; /* Reduce padding for mobile */
+      }
+
+      h1 {
+        font-size: 5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #fb3601;
+
+        /* Mobile responsiveness for h1 */
+        @media (max-width: 768px) {
+          font-size: 2.5rem; /* Adjust font size for better readability */
+          margin-bottom: 0.5rem; /* Reduce margin for better spacing on mobile */
+        }
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1.6;
+        font-family: Arial, Helvetica, sans-serif;
+
+        /* Mobile responsiveness for paragraph text */
+        @media (max-width: 768px) {
+          font-size: 1rem; /* Adjust font size for mobile */
+          line-height: 1.4; /* Adjust line height for better readability */
+        }
+      }
+    }
+  }
+}
+
+// Marketing services styles
+.marketing-services {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .service-card {
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: filter 0.3s ease;
+      }
+    }
+
+    .card-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      width: 100%;
+      padding: 1rem;
+
+      h3 {
+        color: white;
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &.opening {
+      animation: fadeIn 0.3s forwards;
+    }
+
+    &.closing {
+      animation: fadeOut 0.3s forwards;
+    }
+
+    .expanded-card {
+      background-color: black;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 900px;
+      max-height: 90vh;
+      overflow: auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transform: scale(0.9);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+
+      &.opening {
+        animation: scaleIn 0.3s forwards;
+      }
+
+      &.closing {
+        animation: scaleOut 0.3s forwards;
+      }
+
+      .expanded-card-content {
+        display: flex;
+        flex-direction: row;
+
+        @media (max-width: 768px) {
+          flex-direction: column;
+        }
+
+        .expanded-image {
+          flex: 0 0 40%;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 12px 0 0 12px;
+
+            @media (max-width: 768px) {
+              border-radius: 12px 12px 0 0;
+              max-height: 250px;
+            }
+          }
+        }
+
+        .expanded-details {
+          flex: 0 0 60%;
+          padding: 2rem;
+
+          h2 {
+            color: red;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+          }
+
+          p {
+            color: white;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+          }
+
+          .features {
+            margin-bottom: 1.5rem;
+
+            h4 {
+              margin-bottom: 0.5rem;
+              color:red;
+            }
+
+            ul {
+              padding-left: 1.5rem;
+
+              li {
+                margin-bottom: 0.5rem;
+              }
+            }
+          }
+
+          .close-button {
+            background-color: #fb3601;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+              background-color: darken(#fb3601, 10%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animation keyframes
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.9);
+    opacity: 0;
+  }
 }
