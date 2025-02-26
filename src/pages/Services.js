@@ -3,6 +3,8 @@ import "../styles/Services.scss";
 import CallToActionBanner from "../components/CallToActionBanner";
 import Footer from "../components/Footer";
 import ServiceCards from "../components/ServiceCards";
+import BackToTop from "../components/BackToTop";
+import ServicePackages from "../components/ServicePackages";
 import landingImage from "../assets/images/Services.jpg";
 
 const Services = () => {
@@ -14,6 +16,39 @@ const Services = () => {
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
+
+    // Sample service packages data
+    const services = [
+      {
+        id: 1,
+        name: 'Service 1',
+        packages: [
+          {
+            id: 1,
+            name: 'Package 1',
+            description: 'A description of Package 1...',
+            price: '$100',
+            features: ['Feature 1', 'Feature 2', 'Feature 3'],
+          },
+          // ... add more packages
+        ],
+      },
+      {
+        id: 2,
+        name: 'Service 2',
+        packages: [
+          {
+            id: 1,
+            name: 'Package 1',
+            description: 'A description of Package 1...',
+            price: '$100',
+            features: ['Feature 1', 'Feature 2', 'Feature 3'],
+          },
+          // ... add more packages
+        ],
+      },
+      // ... add more services
+    ];
 
     return (
         <div className="services page-wrapper">
@@ -36,8 +71,10 @@ const Services = () => {
                 </section>
 
                 <ServiceCards />
+                <ServicePackages services={services} />
                 <CallToActionBanner />
             </div>
+            <BackToTop />
             <Footer />
         </div>
     );
