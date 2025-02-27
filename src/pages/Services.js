@@ -6,6 +6,7 @@ import ServiceCards from "../components/ServiceCards";
 import BackToTop from "../components/BackToTop";
 import ServicePackages from "../components/ServicePackages";
 import landingImage from "../assets/images/Services.jpg";
+import WebDesignImg from '../assets/images/Web.jpg';
 
 const Services = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -17,37 +18,36 @@ const Services = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Sample service packages data
-    const services = [
-      {
-        id: 1,
-        name: 'Service 1',
-        packages: [
-          {
+    const marketingServices = [
+        {
             id: 1,
-            name: 'Package 1',
-            description: 'A description of Package 1...',
-            price: '$100',
-            features: ['Feature 1', 'Feature 2', 'Feature 3'],
-          },
-          // ... add more packages
-        ],
-      },
-      {
-        id: 2,
-        name: 'Service 2',
-        packages: [
-          {
-            id: 1,
-            name: 'Package 1',
-            description: 'A description of Package 1...',
-            price: '$100',
-            features: ['Feature 1', 'Feature 2', 'Feature 3'],
-          },
-          // ... add more packages
-        ],
-      },
-      // ... add more services
+            title: "Digital Marketing Strategy",
+            image: WebDesignImg,
+            description: "Comprehensive digital marketing strategies tailored to your business goals. We combine SEO, content marketing, and social media to drive growth.",
+            packages: [
+                {
+                    name: "Starter Package",
+                    price: "$1,500/mo",
+                    features: [
+                        "SEO Audit & Strategy",
+                        "Content Calendar",
+                        "Monthly Analytics Report",
+                        "Social Media Management"
+                    ]
+                },
+                {
+                    name: "Professional Package",
+                    price: "$3,500/mo",
+                    features: [
+                        "Full SEO Optimization",
+                        "Weekly Blog Content",
+                        "PPC Campaign Management",
+                        "Email Marketing"
+                    ]
+                }
+            ]
+        },
+        // Add more services following the same structure
     ];
 
     return (
@@ -71,7 +71,7 @@ const Services = () => {
                 </section>
 
                 <ServiceCards />
-                <ServicePackages services={services} />
+                <ServicePackages services={marketingServices} />
                 <CallToActionBanner />
             </div>
             <BackToTop />

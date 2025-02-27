@@ -121,6 +121,14 @@ const MarketingServices = () => {
     }
   };
 
+  const scrollToPackage = (serviceId) => {
+    const packageSection = document.querySelector(`#package-${serviceId}`);
+    if (packageSection) {
+      packageSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    setSelectedCard(null); // Close the card after clicking
+  };
+
   return (
     <div
       className={`marketing-services fade-in-section ${
@@ -131,7 +139,7 @@ const MarketingServices = () => {
         {services.map((service) => (
           <div
             key={service.id}
-            className="service-card"
+            className={`service-card ${selectedCard === service.id ? 'expanded' : ''}`}
             onClick={() => handleCardClick(service.id)}
           >
             <div className="card-image">
@@ -173,6 +181,15 @@ const MarketingServices = () => {
                       onClick={() => closeCard()}
                     >
                       Close
+                    </button>
+                    <button
+                      className="packages-button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        scrollToPackage(service.id);
+                      }}
+                    >
+                      View Packages
                     </button>
                   </div>
                 </div>
