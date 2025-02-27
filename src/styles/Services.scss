@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .services {
   background-color: black;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  // Base font family
+  font-family: "Bebas Neue", sans-serif;  // Base font for branding consistency
 
   &.page-wrapper {
     min-height: 100vh;
@@ -15,17 +17,23 @@
     flex-direction: column;
   }
 
+  // Headers with Bebas for branding
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 1px;
   }
 
-  p, span, button, a {
+  // Body text with Helvetica for readability
+  p, span, button, a, li {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   .landing-overlay {
     h1 {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: "Bebas Neue", sans-serif !important;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
     p {
@@ -35,8 +43,8 @@
 
   .service-card {
     h3 {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      text-align: center;  // Center the title
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 1px;
     }
   }
 
@@ -45,6 +53,8 @@
     .service-title {
       text-align: center;  // Center the title
       margin: 0 auto 1.5rem;  // Center margin and add bottom spacing
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 1.5px;
     }
 
     .service-description {
@@ -57,6 +67,15 @@
       h4 {
         text-align: center;  // Center the "Packages Include:" text
         margin-bottom: 2rem;
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 1px;
+      }
+    }
+
+    .package-header {
+      .package-name {
+        font-family: "Bebas Neue", sans-serif;
+        letter-spacing: 1px;
       }
     }
   }
@@ -76,12 +95,14 @@
   }
 
   .section-title {
-    font-family: "Bebas Neue", sans-serif;  // Corrected to Bebas Neue
+    font-family: "Bebas Neue", sans-serif !important;
     text-align: center;
-    margin-bottom: 2rem;
+    margin: 3rem 0;
     color: #ffffff;
-    text-transform: uppercase;  // Bebas Neue looks better uppercase
-    letter-spacing: 2px;  // Added letter spacing for Bebas
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 3.5rem;
+    font-weight: 500;
   }
 }
 
@@ -121,6 +142,7 @@
       color: white;
       width: 50%; /* Adjust text container width */
       border-radius: 10px;
+      font-family: "bebas Neue", Helvetica, Arial, sans-serif;
 
       /* Mobile responsiveness for text container */
       @media (max-width: 768px) {
