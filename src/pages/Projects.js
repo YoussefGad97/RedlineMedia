@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/Projects.scss';
 import Project1 from "../assets/images/Web.jpg";
 import Project2 from "../assets/images/Branding.jpg";
@@ -8,56 +8,101 @@ import Project5 from "../assets/images/Services.jpg";
 import Project6 from "../assets/images/landing1.jpg";
 
 const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [currentPage, setCurrentPage] = useState(1);
+  const projectsPerPage = 3;  // Changed to 3 to make pagination visible
+
   const projects = [
     {
       id: 1,
-      title: "Project One",
+      title: "Web Development",
       category: "Web Development",
-      image: Project1,  // Replace with your actual image
-      description: "Modern web application with responsive design",
+      image: Project1,
+      description: "Custom websites and web applications",
       link: "#"
     },
     {
       id: 2,
-      title: "Project Two",
-      category: "Digital Marketing",
-      image: Project2,  // Replace with your actual image
-      description: "Comprehensive digital marketing campaign",
+      title: "Branding Solutions",
+      category: "Branding",
+      image: Project2,
+      description: "Complete brand identity and design",
       link: "#"
     },
     {
       id: 3,
-      title: "Project Three",
-      category: "Branding",
-      image: Project3,  // Replace with your actual image
-      description: "Complete brand identity redesign",
+      title: "SEO Optimization",
+      category: "Digital Marketing",
+      image: Project3,
+      description: "Search engine optimization strategies",
       link: "#"
     },
     {
       id: 4,
-      title: "Project Four",
-      category: "Web Development",
-      image: Project4,  // Replace with your actual image
-      description: "E-commerce platform development",
+      title: "Motion Graphics",
+      category: "Digital Marketing",
+      image: Project4,
+      description: "Engaging motion graphics and animations",
       link: "#"
     },
     {
       id: 5,
-      title: "Project Five",
-      category: "Digital Marketing",
-      image: Project5,  // Replace with your actual image
-      description: "Social media marketing strategy",
+      title: "Digital Services",
+      category: "Web Development",
+      image: Project5,
+      description: "Comprehensive digital solutions",
       link: "#"
     },
     {
       id: 6,
-      title: "Project Six",
+      title: "Marketing Strategy",
       category: "Branding",
-      image: Project6,  // Replace with your actual image
-      description: "Brand guidelines and visual identity",
+      image: Project6,
+      description: "Strategic marketing and branding",
+      link: "#"
+    },
+    // Adding duplicate projects to show pagination
+    {
+      id: 7,
+      title: "Web Development 2",
+      category: "Web Development",
+      image: Project1,
+      description: "Custom websites and web applications",
+      link: "#"
+    },
+    {
+      id: 8,
+      title: "Branding Solutions 2",
+      category: "Branding",
+      image: Project2,
+      description: "Complete brand identity and design",
+      link: "#"
+    },
+    {
+      id: 9,
+      title: "SEO Optimization 2",
+      category: "Digital Marketing",
+      image: Project3,
+      description: "Search engine optimization strategies",
       link: "#"
     }
   ];
+
+  const categories = ['all', 'Web Development', 'Digital Marketing', 'Branding'];
+
+  const filteredProjects = activeFilter === 'all' 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter);
+
+  const indexOfLastProject = currentPage * projectsPerPage;
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+  const currentProjects = filteredProjects.slice(indexOfFirstProject, indexOfLastProject);
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
+
+  const handleFilterChange = (category) => {
+    setActiveFilter(category);
+    setCurrentPage(1);
+  };
 
   return (
     <div className="projects-page">
@@ -66,8 +111,20 @@ const Projects = () => {
         <p>Discover our latest work and success stories</p>
       </div>
 
+      <div className="filter-container">
+        {categories.map((category) => (
+          <button
+            key={category}
+            className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
+            onClick={() => handleFilterChange(category)}
+          >
+            {category === 'all' ? 'All Projects' : category}
+          </button>
+        ))}
+      </div>
+
       <div className="projects-grid">
-        {projects.map((project) => (
+        {currentProjects.map((project) => (
           <div className="project-card" key={project.id}>
             <div className="project-image">
               <img src={project.image} alt={project.title} />
@@ -83,6 +140,36 @@ const Projects = () => {
           </div>
         ))}
       </div>
+
+      {totalPages > 1 && (
+        <div className="pagination">
+          <button 
+            className={`pagination-btn ${currentPage === 1 ? 'disabled' : ''}`}
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
+          
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index + 1}
+              className={`pagination-btn ${currentPage === index + 1 ? 'active' : ''}`}
+              onClick={() => setCurrentPage(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
+          
+          <button 
+            className={`pagination-btn ${currentPage === totalPages ? 'disabled' : ''}`}
+            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 };
