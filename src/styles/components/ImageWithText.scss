@@ -79,3 +79,60 @@
     }
   }
 }
+
+.features-circles {
+  margin-top: 2rem;
+  
+  .feature-circle {
+    background: rgba(205, 27, 27, 0.1);
+    border: 2px solid #cd1b1b;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    margin: 0 auto;
+    text-align: center;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-10px);
+      background: rgba(205, 27, 27, 0.2);
+      box-shadow: 0 5px 15px rgba(205, 27, 27, 0.3);
+    }
+    
+    h3 {
+      color: #cd1b1b;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      color: #ffffff;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .features-circles {
+    .feature-circle {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 1.5rem;
+      
+      h3 {
+        font-size: 1.3rem;
+      }
+      
+      p {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

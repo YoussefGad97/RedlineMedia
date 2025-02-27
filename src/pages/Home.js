@@ -11,6 +11,7 @@ import CallToActionBanner from "../components/CallToActionBanner";
 import Footer from "../components/Footer";  
 import ProjectGallery from "../components/ProjectGallery";
 import BackToTop from "../components/BackToTop";
+import WhyChooseUs from '../components/WhyChooseUs';
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -53,8 +54,10 @@ const Home = () => {
         </div>
 
         <div className="section">
-          <FeaturedServices />
+          <WhyChooseUs />
         </div>
+
+      
 
         <div className="section">
           <ProjectGallery />
