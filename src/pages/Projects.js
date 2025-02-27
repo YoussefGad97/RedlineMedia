@@ -10,7 +10,7 @@ import Project6 from "../assets/images/landing1.jpg";
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 3;  // Changed to 3 to make pagination visible
+  const projectsPerPage = 9;  // Changed to show all 9 projects on one page
 
   const projects = [
     {
@@ -61,7 +61,6 @@ const Projects = () => {
       description: "Strategic marketing and branding",
       link: "#"
     },
-    // Adding duplicate projects to show pagination
     {
       id: 7,
       title: "Web Development 2",
@@ -85,7 +84,15 @@ const Projects = () => {
       image: Project3,
       description: "Search engine optimization strategies",
       link: "#"
-    }
+    },
+    {
+        id: 10,
+        title: "test",
+        category: "Digital Marketing",
+        image: Project3,
+        description: "Search engine optimization strategies",
+        link: "#"
+      }
   ];
 
   const categories = ['all', 'Web Development', 'Digital Marketing', 'Branding'];
