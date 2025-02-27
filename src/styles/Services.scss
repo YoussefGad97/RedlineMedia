@@ -1,5 +1,6 @@
 .services {
   background-color: black;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  // Base font family
 
   &.page-wrapper {
     min-height: 100vh;
@@ -14,6 +15,52 @@
     flex-direction: column;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  p, span, button, a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  .landing-overlay {
+    h1 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    p {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  }
+
+  .service-card {
+    h3 {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      text-align: center;  // Center the title
+    }
+  }
+
+  .expanded-card {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    .service-title {
+      text-align: center;  // Center the title
+      margin: 0 auto 1.5rem;  // Center margin and add bottom spacing
+    }
+
+    .service-description {
+      text-align: center;  // Center the description
+      margin: 0 auto 2rem;  // Center margin and add bottom spacing
+      max-width: 800px;  // Limit width for readability
+    }
+
+    .package-list {
+      h4 {
+        text-align: center;  // Center the "Packages Include:" text
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
   /* Fade-in animation */
   .fade-in-section {
     opacity: 0;
@@ -26,6 +73,15 @@
       transform: translateY(0);
       /* Move to original position */
     }
+  }
+
+  .section-title {
+    font-family: "Bebas Neue", sans-serif;  // Corrected to Bebas Neue
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    text-transform: uppercase;  // Bebas Neue looks better uppercase
+    letter-spacing: 2px;  // Added letter spacing for Bebas
   }
 }
 
@@ -89,7 +145,6 @@
         font-size: 1.2rem;
         font-weight: 700;
         line-height: 1.6;
-        font-family: Arial, Helvetica, sans-serif;
 
         /* Mobile responsiveness for paragraph text */
         @media (max-width: 768px) {
@@ -219,16 +274,21 @@
 
         .expanded-image {
           flex: 0 0 40%;
+          height: 600px;  // Set fixed height to match card height
 
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 12px 0 0 12px;
+          }
 
-            @media (max-width: 768px) {
-              border-radius: 12px 12px 0 0;
-              max-height: 250px;
+          @media (max-width: 768px) {
+            height: 40%;  // Take up 40% of the full-screen height
+            flex: none;
+            
+            img {
+              border-radius: 0;
             }
           }
         }
@@ -236,6 +296,11 @@
         .expanded-details {
           flex: 0 0 60%;
           padding: 2rem;
+          
+          @media (max-width: 768px) {
+            height: 60%;  // Take up remaining 60% of height
+            overflow-y: auto;
+          }
 
           h2 {
             color: red;
@@ -267,19 +332,86 @@
             }
           }
 
-          .close-button {
-            background-color: #fb3601;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
+          .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            
+            .packages-button {
+              background-color: #fb3601;
+              color: white;
+              padding: 12px 24px;
+              border: none;
+              border-radius: 6px;
+              cursor: pointer;
+              font-weight: 600;
+              font-size: 1rem;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              transition: all 0.3s ease;
+              box-shadow: 0 2px 8px rgba(251, 54, 1, 0.3);
+              
+              &:hover {
+                background-color: #d62e01;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(251, 54, 1, 0.4);
+              }
+              
+              &:active {
+                transform: translateY(0);
+                box-shadow: 0 2px 4px rgba(251, 54, 1, 0.2);
+              }
 
-            &:hover {
-              background-color: darken(#fb3601, 10%);
+              @media (max-width: 768px) {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+              }
             }
+
+            .close-button {
+              background-color: #333;
+              color: white;
+              padding: 12px 24px;
+              border: none;
+              border-radius: 6px;
+              cursor: pointer;
+              font-weight: 600;
+              font-size: 1rem;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              transition: all 0.3s ease;
+              
+              &:hover {
+                background-color: #444;
+              }
+              
+              &:active {
+                transform: translateY(1px);
+              }
+            }
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;    // Full width
+        height: 100%;   // Full height
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0;  // Remove border radius for full-screen effect
+        
+        .expanded-card-content {
+          height: 50%;
+          
+          .expanded-image {
+            img {
+              border-radius: 0;  // Remove border radius on mobile
+            }
+          }
+          
+          .expanded-details {
+            padding: 1.5rem;
+            overflow-y: auto;
           }
         }
       }
@@ -370,28 +502,68 @@
 
 .expanded-content {
   .packages-button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background-color: #FF0000;
+    background-color: #fb3601;  // Match the brand color
     color: white;
+    padding: 12px 24px;
     border: none;
-    border-radius: 5px;
-    font-weight: 600;
+    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(251, 54, 1, 0.3);  // Subtle glow effect
     
     &:hover {
-      background-color: #cc0000;
+      background-color: darken(#fb3601, 10%);
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(251, 54, 1, 0.4);
     }
     
     &:active {
       transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(251, 54, 1, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      padding: 10px 20px;  // Slightly smaller padding on mobile
+      font-size: 0.9rem;
+    }
+  }
+
+  .close-button,
+  .packages-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &:hover {
+      background-color: #555;
+    }
+    
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  .button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    
+    @media (max-width: 768px) {
+      gap: 10px;
+      margin-top: 20px;
     }
   }
 }

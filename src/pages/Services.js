@@ -9,11 +9,10 @@ import landingImage from "../assets/images/Services.jpg";
 import WebDesignImg from '../assets/images/Web.jpg';
 
 const Services = () => {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 768);
-        handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);

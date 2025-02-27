@@ -186,16 +186,8 @@ const ServicePackages = ({ services }) => {
           <div 
             key={service.id}
             id={`package-${service.id}`}
-            className={`package-card ${index % 2 === 0 ? 'left-align' : 'right-align'}`}
+            className="package-card"
           >
-            <div className="image-container">
-              <img 
-                src={service.image} 
-                alt={service.title} 
-                loading="lazy"
-                className="service-image"
-              />
-            </div>
             <div className="text-container">
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
@@ -215,6 +207,7 @@ const ServicePackages = ({ services }) => {
                           </li>
                         ))}
                       </ul>
+                      <button className="choose-package-btn">Choose This Package</button>
                     </li>
                   ))}
                 </ul>

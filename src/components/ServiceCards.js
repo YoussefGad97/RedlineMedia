@@ -129,6 +129,28 @@ const MarketingServices = () => {
     setSelectedCard(null); // Close the card after clicking
   };
 
+  const ExpandedCard = ({ service, onClose, onViewPackages }) => {
+    return (
+      <div className="expanded-card-content">
+        <div className="expanded-image">
+          <img src={service.image} alt={service.title} />
+        </div>
+        <div className="expanded-details">
+          <h2>{service.title}</h2>
+          <p>{service.description}</p>
+          <div className="button-container">
+            <button className="packages-button" onClick={onViewPackages}>
+              View Packages
+            </button>
+            <button className="close-button" onClick={onClose}>
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div
       className={`marketing-services fade-in-section ${
@@ -161,38 +183,12 @@ const MarketingServices = () => {
             {services
               .filter((service) => service.id === selectedCard)
               .map((service) => (
-                <div key={service.id} className="expanded-card-content">
-                  <div className="expanded-image">
-                    <img src={service.image} alt={service.title} />
-                  </div>
-                  <div className="expanded-details">
-                    <h2>{service.title}</h2>
-                    <p>{service.description}</p>
-                    <div className="features">
-                      <h4>Key Features:</h4>
-                      <ul>
-                        {service.features.map((feature, index) => (
-                          <li key={index}>{feature}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <button
-                      className="close-button"
-                      onClick={() => closeCard()}
-                    >
-                      Close
-                    </button>
-                    <button
-                      className="packages-button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        scrollToPackage(service.id);
-                      }}
-                    >
-                      View Packages
-                    </button>
-                  </div>
-                </div>
+                <ExpandedCard
+                  key={service.id}
+                  service={service}
+                  onClose={closeCard}
+                  onViewPackages={() => scrollToPackage(service.id)}
+                />
               ))}
           </div>
         </div>
