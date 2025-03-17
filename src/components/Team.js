@@ -1,34 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/components/Team.scss";
-import Member1 from "../assets/images/client-2.png"
-
+import Member1 from "../assets/images/JOE.png";
+import Member2 from "../assets/images/AMR.jpeg";
+import Member3 from "../assets/images/S7S.jpeg";
+import Member4 from "../assets/images/Kholoud.jpeg";
 
 const teamMembers = [
   {
-    name: "John Doe",
-    position: "Project Manager",
+    name: "Youssef Gad",
+    position: "Web-Developer",
     image: Member1,
-    whatsapp: "+1234567890",
-    email: "john@example.com",
+    whatsapp: "+201021020613",
+    email: "mryoussefaymangad@gmail.com",
   },
   {
-    name: "Jane Smith",
-    position: "Developer",
-    image: Member1,
+    name: "Amr Ezzat",
+    position: "Graphic Designer",
+    image: Member2,
     whatsapp: "+0987654321",
     email: "jane@example.com",
   },
   {
-    name: "Alice Johnson",
-    position: "Designer",
-    image: Member1,
+    name: "Mohammad Hussein",
+    position: "Marketing Specialist",
+    image: Member3,
     whatsapp: "+1122334455",
     email: "alice@example.com",
   },
   {
-    name: "Bob Brown",
-    position: "Marketing Specialist",
-    image: Member1,
+    name: "Kholud Khaled ",
+    position: "Social Media Manager",
+    image: Member4,
     whatsapp: "+5566778899",
     email: "bob@example.com",
   },
@@ -47,6 +49,8 @@ const Team = () => {
           <div className="team-member" key={index}>
             <img src={member.image} alt={member.name} />
             <div className="overlay">
+              <p>{member.name}</p>
+              <p>{member.position}</p>
               <p>WhatsApp: {member.whatsapp}</p>
               <p>Email: {member.email}</p>
             </div>
