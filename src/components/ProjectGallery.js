@@ -4,12 +4,9 @@ import "../styles/ProjectGallery.scss";
 import Project1 from "../assets/images/P1.jpeg";
 import Project2 from "../assets/images/P2.jpeg";
 import Project3 from "../assets/images/P12.jpeg";
-import Project4 from "../assets/images/P5.jpg"
-import Project5 from "../assets/images/P6.png"
-import Project6 from "../assets/images/p7.png"
-
-
-
+import Project4 from "../assets/images/P5.jpg";
+import Project5 from "../assets/images/P6.png";
+import Project6 from "../assets/images/p7.png";
 
 const ProjectGallery = () => {
   // Sample project data - replace with your actual projects

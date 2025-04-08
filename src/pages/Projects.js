@@ -1,109 +1,153 @@
-import React, { useState } from 'react';
-import '../styles/Projects.scss';
-import Project1 from "../assets/images/Web.jpg";
-import Project2 from "../assets/images/Branding.jpg";
-import Project3 from "../assets/images/SEO.jpg";
-import Project4 from "../assets/images/Motion.jpg";
-import Project5 from "../assets/images/Services.jpg";
-import Project6 from "../assets/images/landing1.jpg";
+import React, { useState } from "react";
+import "../styles/Projects.scss";
+import Project1 from "../assets/images/BakeryPage.png";
+import Project2 from "../assets/images/RedlineMediaAds.png";
+import Project3 from "../assets/images/Rapid.png";
+import Project4 from "../assets/images/DoubleExposure.png";
+import Project5 from "../assets/images/WebPortfolio.png";
+import Project6 from "../assets/images/CrepeTown.png";
+import Project7 from "../assets/images/MoviesApp.png";
+import Project8 from "../assets/images/Qburger.png";
+import Project9 from "../assets/images/Aurelia.png";
+import Project10 from "../assets/images/Sweetopia.png";
+import Project11 from "../assets/images/XStore.png";
+import Project12 from "../assets/images/OmanCars.png";
+import Project13 from "../assets/images/ElTarek.png";
+
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
-  const projectsPerPage = 9;  // Changed to show all 9 projects on one page
+  const projectsPerPage = 9; // Changed to show all 9 projects on one page
 
   const projects = [
     {
       id: 1,
-      title: "Web Development",
+      title: "The Bakery",
       category: "Web Development",
       image: Project1,
-      description: "Custom websites and web applications",
-      link: "#"
+      description: "Custom Bakery Website for Ordering and Menu",
+      link: "https://bakery-rho-cyan.vercel.app/",
     },
     {
       id: 2,
-      title: "Branding Solutions",
-      category: "Branding",
+      title: "Redline Media",
+      category: "Digital Marketing",
       image: Project2,
-      description: "Complete brand identity and design",
-      link: "#"
+      description: "Social Media Ads for Marketing Firm",
+      link: "https://www.behance.net/gallery/220113389/Red-Line-%28Marketing%29",
     },
     {
       id: 3,
-      title: "SEO Optimization",
-      category: "Digital Marketing",
+      title: "Rapid Delivery",
+      category: "Social Media Ads",
       image: Project3,
-      description: "Search engine optimization strategies",
-      link: "#"
+      description: "Social Media Ads For a Package Delivery Service",
+      link: "https://www.behance.net/gallery/220367997/Rapid",
     },
     {
       id: 4,
-      title: "Motion Graphics",
-      category: "Digital Marketing",
+      title: "Double Exposure Graphic Designs",
+      category: "Graphic Design",
       image: Project4,
       description: "Engaging motion graphics and animations",
-      link: "#"
+      link: "https://www.behance.net/gallery/219975881/Double-Exposure",
     },
     {
       id: 5,
-      title: "Digital Services",
+      title: "Web Designer Portfolio",
       category: "Web Development",
       image: Project5,
-      description: "Comprehensive digital solutions",
-      link: "#"
+      description: "A Portfolio Page for a Web-developer or a UI/UX Designer",
+      link: "https://fokir2.vercel.app/",
     },
     {
       id: 6,
-      title: "Marketing Strategy",
-      category: "Branding",
+      title: "Crepe Town Promo",
+      category: "Digital Marketing",
       image: Project6,
-      description: "Strategic marketing and branding",
-      link: "#"
+      description: "Strategic marketing and branding for Crepe Restaurant",
+      link: "#",
     },
     {
       id: 7,
-      title: "Web Development 2",
+      title: "Movies & Tv Entertainment Platform",
       category: "Web Development",
-      image: Project1,
-      description: "Custom websites and web applications",
-      link: "#"
+      image: Project7,
+      description: "Custom Movie and Tv Series Web app",
+      link: "https://movies-app-v2-0.vercel.app/",
     },
     {
       id: 8,
-      title: "Branding Solutions 2",
-      category: "Branding",
-      image: Project2,
-      description: "Complete brand identity and design",
-      link: "#"
+      title: "X Store",
+      category: "Digital Marketing",
+      image: Project11,
+      description: "Digital Marketing For A Tech Store ",
+      link: "https://www.behance.net/gallery/219766677/X-STORE",
     },
     {
       id: 9,
-      title: "SEO Optimization 2",
+      title: "Sweetopia Sweets",
       category: "Digital Marketing",
-      image: Project3,
-      description: "Search engine optimization strategies",
-      link: "#"
+      image: Project10,
+      description: "Marketing Post For an Online Desert & Sweets Shop",
+      link: "https://www.behance.net/gallery/219820927/Sweetopia",
     },
     {
-        id: 10,
-        title: "test",
-        category: "Digital Marketing",
-        image: Project3,
-        description: "Search engine optimization strategies",
-        link: "#"
-      }
+      id: 11,
+      title: "QBurger Restaurant",
+      category: "Web Development",
+      image: Project8,
+      description: "Burger Restaurant Menu and Ordering Platform",
+      link: "https://q-burger-brown.vercel.app/",
+    },
+    {
+      id: 12,
+      title: "Aurelia Jewlery",
+      category: "Web Development",
+      image: Project9,
+      description:
+        "Jewerly E-commerce Store for Ordering and Product Placement",
+      link: "https://jewelry-xi.vercel.app/",
+    },
+    {
+      id: 13,
+      title: "Oman Cars Dealership",
+      category: "Branding",
+      image: Project12,
+      description: "Car Dealership Digital Rebranding",
+      link: "https://www.behance.net/gallery/219767151/Oman-Cars",
+    },
+    {
+      id: 14,
+      title: "El Tarek Furniture",
+      category: "Social Media Ads",
+      image: Project13,
+      description: "Car Dealership Digital Rebranding",
+      link: "https://www.behance.net/gallery/219767151/Oman-Cars",
+    },
   ];
 
-  const categories = ['all', 'Web Development', 'Digital Marketing', 'Branding'];
+  const categories = [
+    "all",
+    "Web Development",
+    "Graphic Design",
+    "Digital Marketing",
+    "Branding",
+    "Social Media Ads",
+  ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filteredProjects =
+    activeFilter === "all"
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
 
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-  const currentProjects = filteredProjects.slice(indexOfFirstProject, indexOfLastProject);
+  const currentProjects = filteredProjects.slice(
+    indexOfFirstProject,
+    indexOfLastProject
+  );
   const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
 
   const handleFilterChange = (category) => {
@@ -122,10 +166,12 @@ const Projects = () => {
         {categories.map((category) => (
           <button
             key={category}
-            className={`filter-btn ${activeFilter === category ? 'active' : ''}`}
+            className={`filter-btn ${
+              activeFilter === category ? "active" : ""
+            }`}
             onClick={() => handleFilterChange(category)}
           >
-            {category === 'all' ? 'All Projects' : category}
+            {category === "all" ? "All Projects" : category}
           </button>
         ))}
       </div>
@@ -136,7 +182,9 @@ const Projects = () => {
             <div className="project-image">
               <img src={project.image} alt={project.title} />
               <div className="overlay">
-                <a href={project.link} className="view-project">View Project</a>
+                <a href={project.link} className="view-project">
+                  View Project
+                </a>
               </div>
             </div>
             <div className="project-info">
@@ -150,27 +198,33 @@ const Projects = () => {
 
       {totalPages > 1 && (
         <div className="pagination">
-          <button 
-            className={`pagination-btn ${currentPage === 1 ? 'disabled' : ''}`}
-            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+          <button
+            className={`pagination-btn ${currentPage === 1 ? "disabled" : ""}`}
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
           >
             Prev
           </button>
-          
+
           {[...Array(totalPages)].map((_, index) => (
             <button
               key={index + 1}
-              className={`pagination-btn ${currentPage === index + 1 ? 'active' : ''}`}
+              className={`pagination-btn ${
+                currentPage === index + 1 ? "active" : ""
+              }`}
               onClick={() => setCurrentPage(index + 1)}
             >
               {index + 1}
             </button>
           ))}
-          
-          <button 
-            className={`pagination-btn ${currentPage === totalPages ? 'disabled' : ''}`}
-            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+
+          <button
+            className={`pagination-btn ${
+              currentPage === totalPages ? "disabled" : ""
+            }`}
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
             disabled={currentPage === totalPages}
           >
             Next
